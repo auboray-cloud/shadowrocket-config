@@ -134,7 +134,7 @@ Purpose: banks, payment, government apps, shopping, and domestic content platfor
 The config uses:
 
 ```conf
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/AdvertisingLite/AdvertisingLite.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/AdvertisingLite.list,REJECT
 ```
 
 Purpose:
@@ -159,7 +159,7 @@ These rule sets are explicitly proxied:
 Example:
 
 ```conf
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/OpenAI/OpenAI.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/OpenAI.list,PROXY
 ```
 
 Purpose: these services are usually blocked, region-sensitive, or need overseas routing.
@@ -197,7 +197,7 @@ Purpose: AI tools, developer resources, and privacy-check websites should use th
 The config uses the Apple rule set as direct:
 
 ```conf
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/Apple.list,DIRECT
 ```
 
 Purpose:
@@ -217,7 +217,7 @@ Apple News is handled earlier as proxy, so it will not be swallowed by the Apple
 The config uses:
 
 ```conf
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMax/ChinaMax.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/ChinaMax.list,DIRECT
 DOMAIN-SUFFIX,cn,DIRECT
 GEOIP,CN,DIRECT
 ```
@@ -321,7 +321,7 @@ The main config is maintained here:
 https://github.com/auboray-cloud/shadowrocket-config
 ```
 
-Remote rule sets are maintained by the upstream `blackmatrix7/ios_rule_script` project.
+Rule sets are mirrored into this repository under `rules/`, with upstream source noted in `MIRROR.md`.
 
 To update:
 
