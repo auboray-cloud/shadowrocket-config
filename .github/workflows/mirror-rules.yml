@@ -1,0 +1,100 @@
+name: Mirror rule sets
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 20 * * 0"
+  push:
+    paths:
+      - ".github/workflows/mirror-rules.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Download upstream rule sets
+        run: |
+          set -euo pipefail
+          mkdir -p rules
+          for name in AdvertisingLite Telegram OpenAI AppleNews YouTube Netflix Disney Apple ChinaMax; do
+            curl -fsSL --retry 3 --retry-delay 2 \
+              "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/${name}/${name}.list" \
+              -o "rules/${name}.list"
+          done
+
+      - name: Point config at mirrored rule sets
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path("lite_optimized.conf")
+          text = path.read_text()
+          names = [
+              "AdvertisingLite",
+              "Telegram",
+              "OpenAI",
+              "AppleNews",
+              "YouTube",
+              "Netflix",
+              "Disney",
+              "Apple",
+              "ChinaMax",
+          ]
+          for name in names:
+              upstream = f"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/{name}/{name}.list"
+              mirror = f"https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/{name}.list"
+              text = text.replace(upstream, mirror)
+          path.write_text(text)
+          PY
+
+      - name: Write mirror note
+        run: |
+          cat > MIRROR.md <<'EOF'
+          # Mirrored Rule Sets
+
+          The files in `rules/` are local mirrors of the rule sets used by `lite_optimized.conf`.
+
+          Original upstream:
+
+          ```text
+          https://github.com/blackmatrix7/ios_rule_script
+          ```
+
+          Mirrored files:
+
+          - `AdvertisingLite.list`
+          - `Telegram.list`
+          - `OpenAI.list`
+          - `AppleNews.list`
+          - `YouTube.list`
+          - `Netflix.list`
+          - `Disney.list`
+          - `Apple.list`
+          - `ChinaMax.list`
+
+          Purpose:
+
+          - Keep Shadowrocket usable even if the upstream repository is temporarily unavailable.
+          - Make the config depend on `auboray-cloud/shadowrocket-config` instead of directly depending on upstream raw URLs.
+
+          This mirror is refreshed weekly by GitHub Actions. If upstream disappears later, the latest mirrored files remain in this repository.
+          EOF
+
+      - name: Commit mirror updates
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lite_optimized.conf MIRROR.md rules
+          if git diff --cached --quiet; then
+            echo "No mirror changes to commit."
+          else
+            git commit -m "Mirror upstream rule sets"
+            git push
+          fi
