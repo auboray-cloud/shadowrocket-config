@@ -6,6 +6,7 @@ Personal Shadowrocket rule configuration for mainland China networks.
 
 - `lite_optimized.conf`: main Shadowrocket configuration.
 - `RULES.md`: routing rule guide and troubleshooting notes.
+- `规则说明.md`: 中文规则说明和排查指南。
 
 ## Update URL
 
