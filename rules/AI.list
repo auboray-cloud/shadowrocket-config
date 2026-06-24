@@ -8,6 +8,8 @@ DOMAIN-SUFFIX,pplx.ai
 
 # ChatGPT and OpenAI core services.
 DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,chat.com
+DOMAIN-SUFFIX,sora.com
 DOMAIN-SUFFIX,ai.com
 DOMAIN-SUFFIX,chatgpt.livekit.cloud
 DOMAIN-SUFFIX,openai.com
@@ -16,6 +18,15 @@ DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,openaiapi-site.azureedge.net
 DOMAIN-SUFFIX,openaicom.imgix.net
 DOMAIN-KEYWORD,openai
+DOMAIN,cdn.workos.com
+DOMAIN,forwarder.workos.com
+DOMAIN,setup.workos.com
+DOMAIN,images.workoscdn.com
+DOMAIN,workos.imgix.net
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN-SUFFIX,featureassets.org
+DOMAIN-SUFFIX,statsig.com
+DOMAIN-SUFFIX,statsigapi.net
 IP-CIDR,24.199.123.28/32,no-resolve
 IP-CIDR,64.23.132.171/32,no-resolve
 
@@ -46,9 +57,12 @@ DOMAIN-SUFFIX,copilot.microsoft.com
 DOMAIN-SUFFIX,copilot.cloud.microsoft
 DOMAIN,sydney.bing.com
 DOMAIN,edgeservices.bing.com
+DOMAIN,m365.cloud.microsoft.com
 DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN,copilot-proxy.githubusercontent.com
+DOMAIN,origin-tracker.githubusercontent.com
+DOMAIN,copilot-telemetry.githubusercontent.com
 DOMAIN-SUFFIX,mistral.ai
-DOMAIN-SUFFIX,lechat.com
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,character.ai
 DOMAIN-SUFFIX,huggingface.co
