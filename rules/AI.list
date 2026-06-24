@@ -38,3 +38,20 @@ DOMAIN-SUFFIX,alkalimakersuite-pa.clients6.google.com
 DOMAIN,accounts.google.com
 DOMAIN,oauth2.googleapis.com
 DOMAIN,www.gstatic.com
+
+# Other major international AI services. Mainland AI services stay direct.
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,copilot.microsoft.com
+DOMAIN-SUFFIX,copilot.cloud.microsoft
+DOMAIN,sydney.bing.com
+DOMAIN,edgeservices.bing.com
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN-SUFFIX,mistral.ai
+DOMAIN-SUFFIX,lechat.com
+DOMAIN-SUFFIX,meta.ai
+DOMAIN-SUFFIX,character.ai
+DOMAIN-SUFFIX,huggingface.co
+DOMAIN-SUFFIX,hf.co
+DOMAIN-SUFFIX,groq.com
+DOMAIN-SUFFIX,openrouter.ai
+DOMAIN-SUFFIX,midjourney.com

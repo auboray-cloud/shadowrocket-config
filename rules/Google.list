@@ -1,0 +1,15 @@
+# Google core services. Gemini-specific rules are matched by AI.list first.
+DOMAIN-KEYWORD,google
+DOMAIN-KEYWORD,gmail
+DOMAIN-KEYWORD,blogspot
+DOMAIN-KEYWORD,recaptcha
+DOMAIN-SUFFIX,1e100.net
+DOMAIN-SUFFIX,abc.xyz
+DOMAIN-SUFFIX,blogger.com
+DOMAIN-SUFFIX,ggpht.com
+DOMAIN-SUFFIX,goo.gl
+DOMAIN-SUFFIX,goog
+DOMAIN-SUFFIX,gstatic.com
+DOMAIN-SUFFIX,gvt1.com
+DOMAIN-SUFFIX,gvt2.com
+DOMAIN-SUFFIX,withgoogle.com
