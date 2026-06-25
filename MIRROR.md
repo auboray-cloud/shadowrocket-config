@@ -1,6 +1,6 @@
 # Mirrored Rule Sets
 
-The files in `rules/` are local mirrors of the rule sets used by `lite_optimized.conf`.
+The files in `rules/` are local mirrors. Most are used by `lite_optimized.conf`; a small number may be kept only as available mirrors for rollback or future use.
 
 Original upstream:
 
@@ -18,7 +18,7 @@ Mirrored files:
 - `Netflix.list`
 - `Disney.list`
 - `Apple.list`
-- `ChinaMax.list`
+- `ChinaMax.list` (kept as a mirror only; not referenced by the current main profile)
 
 Purpose:
 

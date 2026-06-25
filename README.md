@@ -28,6 +28,8 @@ update-url = https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config
 
 - This config does not include proxy nodes.
 - Rule sets are mirrored into this repository, so the config no longer directly depends on upstream raw rule URLs.
-- China mainland domains and IP ranges are routed direct.
-- Unknown overseas traffic falls back to proxy.
+- Only explicit mainland daily-app allowlists are routed direct.
+- There is no broad `.cn`, China IP, or `GEOIP,CN` direct fallback.
+- Unknown traffic falls back to the main proxy.
+- International AI services use the Singapore `AI-SG` policy group.
 - MITM is disabled by default.

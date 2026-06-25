@@ -1,6 +1,6 @@
 # Shadowrocket Rules Guide
 
-This document explains the routing logic used by `lite_optimized.conf`.
+This document explains the current routing logic used by `lite_optimized.conf`.
 
 ## Update URL
 
@@ -10,225 +10,82 @@ Use this URL in Shadowrocket:
 https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/lite_optimized.conf
 ```
 
-The config also contains the same `update-url`, so Shadowrocket can update it later.
+The same URL is also written into `update-url`, so the profile can update itself later.
 
-## Routing Order
+## Current Design
 
-Shadowrocket rules are matched from top to bottom. The first matching rule wins.
+Rules are matched from top to bottom. The current design is intentionally simple:
 
-Current order:
-
-1. Local network direct
-2. Mainland daily apps direct
+1. Local network, NAS, and `*.auboray.com` direct
+2. Mainland daily app allowlist direct
 3. Lightweight ad blocking
-4. Important overseas services proxy
-5. Manual AI, developer, and privacy-check proxy rules
+4. AI services through `AI-SG`
+5. Selected overseas services through the main proxy
 6. Apple core services direct
-7. Mainland China domains and IPs direct
-8. Everything else proxy
+7. Everything else through the main proxy
 
-## 1. Local Network Direct
+There is no broad `.cn`, China IP, or `GEOIP,CN` direct fallback. Unknown traffic should use the main proxy.
 
-These are always direct:
+## Local Direct
+
+Always direct:
 
 - `localhost`
 - `.local`
 - `.lan`
 - `.internal`
-- Private IPv4 ranges:
-  - `10.0.0.0/8`
-  - `100.64.0.0/10`
-  - `127.0.0.0/8`
-  - `169.254.0.0/16`
-  - `172.16.0.0/12`
-  - `192.168.0.0/16`
-- Local and reserved IPv6 ranges:
-  - `::1/128`
-  - `fc00::/7`
-  - `fe80::/10`
+- `.home`
+- `.home.arpa`
+- `.localdomain`
+- `.localnet`
+- `auboray.com`
+- `*.auboray.com`
+- Private IPv4 ranges such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`
+- Local IPv6 ranges such as `::1/128`, `fc00::/7`, and `fe80::/10`
 
-Purpose: LAN devices, routers, NAS, printers, local services, and captive portals should not use the proxy.
+Purpose: routers, NAS, printers, Home Assistant, local devices, and local services should never go through proxy.
 
-## 2. Mainland Daily Apps Direct
+## Mainland Daily App Allowlist
 
-These services are explicitly direct before proxy rules.
-
-### Payment
-
-- Alipay
-- WeChat Pay
-- Tenpay
-- UnionPay
-
-Main domains include:
-
-- `alipay.com`
-- `alipayobjects.com`
-- `tenpay.com`
-- `wechatpay.cn`
-- `95516.com`
-- `unionpay.com`
-- `unionpayintl.com`
-
-### Banks
-
-Main covered banks:
-
-- ICBC
-- CCB
-- ABC
-- Bank of China
-- Bank of Communications
-- CMB
-- PSBC
-- CIB
-- CEB
-- CITIC
-- SPDB
-- Ping An
-- WeBank
-- MYbank
-
-### Government
-
-Main covered services:
-
-- `gov.cn`
-- `12306.cn`
-- Tax services
-- Medical insurance services
-- MIIT
-- Public security
-- Human resources and social security
-- National government service platforms
-
-### Short Video And Content
-
-Main covered services:
-
-- Douyin
-- Kuaishou
-- Bilibili
-- Xiaohongshu
-- Xigua
-
-### Shopping And Local Life
-
-Main covered services:
-
-- Taobao
-- Tmall
-- 1688
-- JD
-- Pinduoduo
-- Suning
-- Vipshop
-- Meituan
-- Dianping
-- Ele.me
-
-Purpose: banks, payment, government apps, shopping, and domestic content platforms should avoid proxy-related risk checks, region mismatch, or login verification problems.
-
-## 3. Lightweight Ad Blocking
-
-The config uses:
+The profile uses:
 
 ```conf
-RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/AdvertisingLite.list,REJECT
+RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/ChinaDaily.list,DIRECT
 ```
 
-Purpose:
+Covered categories:
 
-- Block common ads and trackers.
-- Keep the list lighter than a full ad list.
-- Reduce mobile overhead and false positives.
+- Payments and messaging: Alipay, WeChat Pay, QQ, UnionPay
+- Banks: ICBC, CCB, ABC, BOC, CMB, PSBC, CIB, CEB, CITIC, SPDB, Ping An, WeBank, MYbank
+- Government and public services: `gov.cn`, `12306.cn`, tax, healthcare, MIIT, public security, social security
+- Video and social apps: Douyin, Kuaishou, Bilibili, Xiaohongshu, Xigua
+- Shopping and local life: Taobao, Tmall, 1688, JD, Pinduoduo, Suning, Vipshop, Meituan, Dianping, Ele.me
 
-If an app behaves strangely, this ad rule is one of the first places to check.
+Purpose: only trusted daily mainland services are direct. This keeps payment, banking, government, shopping, and short-video apps fast and less likely to trigger risk checks.
 
-## 4. Important Overseas Services Proxy
+## AI Routing
 
-These rule sets are explicitly proxied:
-
-- Telegram
-- OpenAI / ChatGPT
-- Apple News
-- YouTube
-- Netflix
-- Disney+
-
-Example:
+International AI services use the `AI-SG` policy group:
 
 ```conf
-RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/OpenAI.list,PROXY
+AI-SG = select,policy-regex-filter=新加坡,url=http://www.gstatic.com/generate_204,interval=600,timeout=5,select=0
+RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/AI.list,AI-SG
 ```
 
-Purpose: these services are usually blocked, region-sensitive, or need overseas routing.
+Covered examples:
 
-## 5. Manual Proxy Rules
-
-These are manually proxied:
-
-- Anthropic / Claude
+- ChatGPT / OpenAI
+- Claude / Anthropic
+- Gemini
+- Grok / xAI
 - Perplexity
 - Poe
-- Gemini
-- GitHub
-- GitLab
-- DNS leak and browser leak test sites
+- GitHub Copilot
+- Mistral, Meta AI, Character.AI, Hugging Face, Groq, OpenRouter, Midjourney
 
-Main domains include:
+Domestic AI services are not added to `AI.list`; they should use the normal mainland daily/direct path only when explicitly allowlisted.
 
-- `anthropic.com`
-- `claude.ai`
-- `perplexity.ai`
-- `poe.com`
-- `gemini.google.com`
-- `github.com`
-- `githubusercontent.com`
-- `gitlab.com`
-- `dnsleaktest.com`
-- `ipleak.net`
-- `browserleaks.com`
-
-Purpose: AI tools, developer resources, and privacy-check websites should use the proxy.
-
-## 6. Apple Core Services Direct
-
-The config uses the Apple rule set as direct:
-
-```conf
-RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/Apple.list,DIRECT
-```
-
-Purpose:
-
-- App Store
-- iCloud
-- Apple Push
-- Apple system services
-- Apple CDN
-
-These usually work best direct in mainland China.
-
-Apple News is handled earlier as proxy, so it will not be swallowed by the Apple direct rule.
-
-## 7. Mainland China Direct
-
-The config uses:
-
-```conf
-RULE-SET,https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/rules/ChinaMax.list,DIRECT
-DOMAIN-SUFFIX,cn,DIRECT
-GEOIP,CN,DIRECT
-```
-
-Purpose:
-
-- Mainland domains direct.
-- Mainland IP ranges direct.
-- Avoid proxying ordinary Chinese websites and apps.
-
-## 8. Final Rule
+## Main Proxy Fallback
 
 The final rule is:
 
@@ -236,95 +93,68 @@ The final rule is:
 FINAL,PROXY
 ```
 
-Any traffic that does not match earlier rules uses the proxy.
-
-This means:
-
-- Most unknown overseas sites use proxy.
-- Google services generally use proxy.
-- New overseas services are more likely to work without adding extra rules.
+This means all unmatched traffic uses the main proxy selected in Shadowrocket. If you want Futu, Longbridge, Google, YouTube, X, GitHub, and other overseas or unknown services to use Hong Kong, select a stable Hong Kong node as the main proxy.
 
 ## DNS
 
 Current DNS:
 
 ```conf
-dns-server = h3://dns.alidns.com/dns-query, https://doh.pub/dns-query
+dns-server = system, h3://dns.alidns.com/dns-query, https://doh.pub/dns-query
 fallback-dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query
+always-real-ip = auboray.com, *.auboray.com
+dns-direct-system = true
 ```
 
 Design:
 
-- Domestic encrypted DNS first for mainland speed and compatibility.
-- Overseas encrypted DNS fallback for foreign domains.
+- System DNS stays available for local and home-network names.
+- Domestic encrypted DNS helps mainland services.
+- Overseas DNS is fallback.
+- `auboray.com` and `*.auboray.com` use real DNS results for IPv6 direct access.
 
 ## IPv6
 
 Current setting:
 
 ```conf
-ipv6 = false
+ipv6 = true
 ```
 
-Recommendation: keep IPv6 disabled unless the proxy node clearly supports IPv6 and leak tests pass.
+Reason: the home NAS domain uses IPv6 direct access. Keep IPv6 leak tests in mind when changing nodes or DNS settings.
 
 ## MITM
 
-Current setting:
+MITM is disabled:
 
 ```conf
 hostname =
 ```
 
-MITM is disabled by default.
-
-Recommendation: keep it disabled unless you specifically need HTTPS rewrite, script filtering, or debugging.
-
-## Quick Test Checklist
-
-After importing or updating the config, test:
-
-- Baidu or Taobao: should be direct.
-- Alipay or bank app: should be direct.
-- Government service or 12306: should be direct.
-- YouTube: should use proxy.
-- ChatGPT: should use proxy.
-- Telegram: should use proxy.
-- App Store or iCloud: usually should be direct.
-- `ipleak.net`: should show the expected proxy IP when visited through proxy.
+Keep it disabled unless HTTPS rewrite, script filtering, or debugging is intentionally needed.
 
 ## Troubleshooting
 
-If a domestic app has login, payment, or verification issues:
+If a mainland daily app is slow or cannot log in:
 
-1. Check recent requests in Shadowrocket.
-2. If the app domain is going through `PROXY`, add it to the direct section.
-3. If the app is blocked by `REJECT`, check the `AdvertisingLite` rule.
+1. Check Shadowrocket recent requests.
+2. If the app is going through `PROXY`, add its domain to `ChinaDaily.list`.
+3. If it is blocked by `REJECT`, check `AdvertisingLite.list`.
 
-If an overseas app does not work:
+If an overseas service does not work:
 
-1. Check whether it is direct because of `ChinaMax`.
-2. Add a manual `DOMAIN-SUFFIX,...,PROXY` rule above Apple and China direct rules.
-3. Verify the selected proxy node is working.
+1. Check whether the selected main proxy node works.
+2. For AI services, confirm the request matches `AI-SG`.
+3. Add a missing AI domain to `AI.list` only when the service should use Singapore.
 
-If DNS or location looks wrong:
+If Futu or Longbridge is slow:
 
-1. Test with `ipleak.net`.
-2. Try another proxy node.
-3. Keep IPv6 disabled unless you know the node supports it.
+1. Select a stable Hong Kong node as the main proxy.
+2. Keep the profile in config mode.
+3. Check that the request falls through to `FINAL,PROXY` instead of direct.
 
-## Maintenance
+If local NAS or LAN access fails:
 
-The main config is maintained here:
-
-```text
-https://github.com/auboray-cloud/shadowrocket-config
-```
-
-Rule sets are mirrored into this repository under `rules/`, with upstream source noted in `MIRROR.md`.
-
-To update:
-
-1. Edit `lite_optimized.conf`.
-2. Push the change to GitHub.
-3. In Shadowrocket, update the config.
+1. Check whether the hostname is under `*.auboray.com`, `.local`, `.lan`, `.home`, or another local suffix.
+2. Make sure Chrome Secure DNS is disabled if Chrome bypasses system DNS.
+3. Verify IPv6 is available on the local network.
