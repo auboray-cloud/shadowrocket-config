@@ -50,8 +50,26 @@ DOMAIN-SUFFIX,iesdouyin.com
 DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,amemv.com
 DOMAIN-SUFFIX,ixigua.com
+DOMAIN-SUFFIX,bytecdn.cn
+DOMAIN-SUFFIX,byteimg.com
+DOMAIN-SUFFIX,bytedance.com
+DOMAIN-SUFFIX,bytedance.net
+DOMAIN-SUFFIX,bytednsdoc.com
+DOMAIN-SUFFIX,bytegecko.com
+DOMAIN-SUFFIX,bytegoofy.com
+DOMAIN-SUFFIX,pstatp.com
+DOMAIN-SUFFIX,toutiao.com
+DOMAIN-SUFFIX,toutiaoimg.com
+DOMAIN-SUFFIX,toutiaostatic.com
+DOMAIN-SUFFIX,ttwebview.com
+DOMAIN-SUFFIX,volccdn.com
+DOMAIN-SUFFIX,volces.com
+DOMAIN-SUFFIX,zijieapi.com
+DOMAIN-SUFFIX,zijiecdn.com
 DOMAIN-SUFFIX,kuaishou.com
 DOMAIN-SUFFIX,kuaishouzt.com
+DOMAIN-SUFFIX,gifshow.com
+DOMAIN-SUFFIX,ksapisrv.com
 DOMAIN-SUFFIX,kspkg.com
 DOMAIN-SUFFIX,yximgs.com
 DOMAIN-SUFFIX,bilibili.com
@@ -62,6 +80,7 @@ DOMAIN-SUFFIX,hdslb.com
 DOMAIN-SUFFIX,acgvideo.com
 DOMAIN-SUFFIX,xiaohongshu.com
 DOMAIN-SUFFIX,xhscdn.com
+DOMAIN-SUFFIX,xhslink.com
 
 # Shopping and local services.
 DOMAIN-SUFFIX,taobao.com
