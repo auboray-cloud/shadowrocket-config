@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p rules
-          for name in AdvertisingLite Telegram OpenAI AppleNews YouTube Netflix Disney Apple ChinaMax; do
+          for name in AdvertisingLite Telegram OpenAI AppleNews YouTube Netflix Disney Apple; do
             curl -fsSL --retry 3 --retry-delay 2 \
               "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/${name}/${name}.list" \
               -o "rules/${name}.list"
@@ -44,7 +44,6 @@ jobs:
               "Netflix",
               "Disney",
               "Apple",
-              "ChinaMax",
           ]
           for name in names:
               upstream = f"https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/{name}/{name}.list"
@@ -76,7 +75,6 @@ jobs:
           - `Netflix.list`
           - `Disney.list`
           - `Apple.list`
-          - `ChinaMax.list`
 
           Purpose:
 
