@@ -109,6 +109,12 @@ DOMAIN-SUFFIX,meituan.com
 DOMAIN-SUFFIX,dianping.com
 DOMAIN-SUFFIX,ele.me
 
+# Maps and location services.
+DOMAIN-SUFFIX,amap.com
+DOMAIN-SUFFIX,autonavi.com
+DOMAIN-SUFFIX,amapauto.com
+DOMAIN-SUFFIX,gaode.com
+
 # Xiaomi and Mi Home ecosystem.
 DOMAIN-SUFFIX,xiaomi.com
 DOMAIN-SUFFIX,mi.com
