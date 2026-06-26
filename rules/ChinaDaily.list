@@ -108,3 +108,10 @@ DOMAIN-SUFFIX,vip.com
 DOMAIN-SUFFIX,meituan.com
 DOMAIN-SUFFIX,dianping.com
 DOMAIN-SUFFIX,ele.me
+
+# Xiaomi and Mi Home ecosystem.
+DOMAIN-SUFFIX,xiaomi.com
+DOMAIN-SUFFIX,mi.com
+DOMAIN-SUFFIX,mi-img.com
+DOMAIN-SUFFIX,miui.com
+DOMAIN-SUFFIX,mijia.tech
