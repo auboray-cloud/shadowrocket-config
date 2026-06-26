@@ -115,3 +115,8 @@ DOMAIN-SUFFIX,mi.com
 DOMAIN-SUFFIX,mi-img.com
 DOMAIN-SUFFIX,miui.com
 DOMAIN-SUFFIX,mijia.tech
+
+# EZVIZ / Ys7 cloud video.
+DOMAIN-SUFFIX,ys7.com
+DOMAIN-SUFFIX,ezviz.com
+DOMAIN-SUFFIX,ezvizlife.com
