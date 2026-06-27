@@ -4,8 +4,11 @@ DOMAIN-SUFFIX,alipayobjects.com
 DOMAIN-SUFFIX,tenpay.com
 DOMAIN-SUFFIX,wechatpay.cn
 DOMAIN-SUFFIX,weixin.qq.com
+DOMAIN-SUFFIX,weixin.qq.com.cn
 DOMAIN-SUFFIX,wechat.com
+DOMAIN-SUFFIX,weixinbridge.com
 DOMAIN-SUFFIX,wx.gtimg.com
+DOMAIN-SUFFIX,wxqcloud.qq.com.cn
 DOMAIN-SUFFIX,qpic.cn
 DOMAIN-SUFFIX,qq.com
 DOMAIN-SUFFIX,95516.com
@@ -55,6 +58,7 @@ DOMAIN-SUFFIX,zwfw.gov.cn
 DOMAIN-SUFFIX,douyin.com
 DOMAIN-SUFFIX,douyincdn.com
 DOMAIN-SUFFIX,douyinpic.com
+DOMAIN-SUFFIX,douyinvod.com
 DOMAIN-SUFFIX,iesdouyin.com
 DOMAIN-SUFFIX,snssdk.com
 DOMAIN-SUFFIX,amemv.com
@@ -90,6 +94,10 @@ DOMAIN-SUFFIX,acgvideo.com
 DOMAIN-SUFFIX,xiaohongshu.com
 DOMAIN-SUFFIX,xhscdn.com
 DOMAIN-SUFFIX,xhslink.com
+
+# Live streaming and realtime video.
+DOMAIN-SUFFIX,tlivesource.com
+DOMAIN-SUFFIX,tlivedns.com
 
 # Shopping and local services.
 DOMAIN-SUFFIX,taobao.com
