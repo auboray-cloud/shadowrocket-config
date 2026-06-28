@@ -54,6 +54,13 @@ DOMAIN-SUFFIX,chinatelecom.com.cn
 DOMAIN-SUFFIX,ctyun.cn
 DOMAIN-SUFFIX,cloud189.com
 DOMAIN-SUFFIX,bestpay.com.cn
+DOMAIN-SUFFIX,online-cmcc.cn
+DOMAIN-SUFFIX,cmcc-cs.cn
+DOMAIN-SUFFIX,komect.com
+DOMAIN-SUFFIX,mmarket.com
+DOMAIN-SUFFIX,cmicapm.com
+DOMAIN-SUFFIX,ctmus.cn
+DOMAIN-SUFFIX,vod2.myqcloud.com
 
 # Mainland securities brokers.
 DOMAIN-SUFFIX,gf.com.cn
@@ -142,6 +149,7 @@ DOMAIN-SUFFIX,amap.com
 DOMAIN-SUFFIX,autonavi.com
 DOMAIN-SUFFIX,amapauto.com
 DOMAIN-SUFFIX,gaode.com
+DOMAIN-SUFFIX,map.baidu.com
 
 # Xiaomi and Mi Home ecosystem.
 DOMAIN-SUFFIX,xiaomi.com
