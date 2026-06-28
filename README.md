@@ -5,7 +5,6 @@ Personal Shadowrocket rule configuration for mainland China networks.
 ## Files
 
 - `Auboray_SmartLink.conf`: main Shadowrocket configuration.
-- `lite_optimized.conf`: legacy compatibility entry that points updates to `Auboray_SmartLink.conf`.
 - `rules/`: mirrored rule-set files used by `Auboray_SmartLink.conf`.
 - `MIRROR.md`: rule mirror source and refresh notes.
 - `RULES.md`: routing rule guide and troubleshooting notes.
