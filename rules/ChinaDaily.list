@@ -149,7 +149,12 @@ DOMAIN-SUFFIX,amap.com
 DOMAIN-SUFFIX,autonavi.com
 DOMAIN-SUFFIX,amapauto.com
 DOMAIN-SUFFIX,gaode.com
-DOMAIN-SUFFIX,map.baidu.com
+
+# Baidu services and SDKs.
+DOMAIN-SUFFIX,baidu.com
+DOMAIN-SUFFIX,baidubce.com
+DOMAIN-SUFFIX,bdstatic.com
+DOMAIN-SUFFIX,bdimg.com
 
 # Xiaomi and Mi Home ecosystem.
 DOMAIN-SUFFIX,xiaomi.com
