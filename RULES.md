@@ -1,13 +1,13 @@
 # Shadowrocket Rules Guide
 
-This document explains the current routing logic used by `lite_optimized.conf`.
+This document explains the current routing logic used by `Auboray_SmartLink.conf`.
 
 ## Update URL
 
 Use this URL in Shadowrocket:
 
 ```text
-https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/lite_optimized.conf
+https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/Auboray_SmartLink.conf
 ```
 
 The same URL is also written into `update-url`, so the profile can update itself later.
@@ -16,7 +16,7 @@ The same URL is also written into `update-url`, so the profile can update itself
 
 Rules are matched from top to bottom. The current design is intentionally simple:
 
-1. Local network, NAS, and `*.auboray.com` direct
+1. Local network, NAS, `*.auboray.com`, `*.auboray.org`, and Synology QuickConnect direct
 2. Mainland daily app allowlist direct
 3. Lightweight ad blocking
 4. AI services through `AI-SG`
@@ -40,6 +40,10 @@ Always direct:
 - `.localnet`
 - `auboray.com`
 - `*.auboray.com`
+- `auboray.org`
+- `*.auboray.org`
+- `quickconnect.to`
+- `quickconnect.cn`
 - Private IPv4 ranges such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`
 - Local IPv6 ranges such as `::1/128`, `fc00::/7`, and `fe80::/10`
 

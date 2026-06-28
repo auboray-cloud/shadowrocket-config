@@ -4,8 +4,9 @@ Personal Shadowrocket rule configuration for mainland China networks.
 
 ## Files
 
-- `lite_optimized.conf`: main Shadowrocket configuration.
-- `rules/`: mirrored rule-set files used by `lite_optimized.conf`.
+- `Auboray_SmartLink.conf`: main Shadowrocket configuration.
+- `lite_optimized.conf`: legacy compatibility entry that points updates to `Auboray_SmartLink.conf`.
+- `rules/`: mirrored rule-set files used by `Auboray_SmartLink.conf`.
 - `MIRROR.md`: rule mirror source and refresh notes.
 - `RULES.md`: routing rule guide and troubleshooting notes.
 - `规则说明.md`: 中文规则说明和排查指南。
@@ -15,13 +16,13 @@ Personal Shadowrocket rule configuration for mainland China networks.
 Use this URL in Shadowrocket:
 
 ```text
-https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/lite_optimized.conf
+https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/Auboray_SmartLink.conf
 ```
 
-The same URL is written into `lite_optimized.conf` as:
+The same URL is written into the profile as:
 
 ```conf
-update-url = https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/lite_optimized.conf
+update-url = https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config/main/Auboray_SmartLink.conf
 ```
 
 ## Notes

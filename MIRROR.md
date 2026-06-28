@@ -1,6 +1,6 @@
 # Mirrored Rule Sets
 
-The files in `rules/` are local mirrors of the rule sets used by `lite_optimized.conf`.
+The files in `rules/` are local mirrors of the rule sets used by `Auboray_SmartLink.conf`.
 
 Original upstream:
 
