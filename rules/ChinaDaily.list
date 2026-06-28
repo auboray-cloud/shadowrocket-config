@@ -35,6 +35,26 @@ DOMAIN-SUFFIX,mybank.cn
 DOMAIN-SUFFIX,cgbchina.com.cn
 DOMAIN-SUFFIX,gdb.com.cn
 
+# China carriers.
+DOMAIN-SUFFIX,10086.cn
+DOMAIN-SUFFIX,chinamobile.com
+DOMAIN-SUFFIX,cmcc.com
+DOMAIN-SUFFIX,139.com
+DOMAIN-SUFFIX,migu.cn
+DOMAIN-SUFFIX,miguvideo.com
+DOMAIN-SUFFIX,cmpassport.com
+DOMAIN-SUFFIX,10010.com
+DOMAIN-SUFFIX,chinaunicom.com
+DOMAIN-SUFFIX,chinaunicom.cn
+DOMAIN-SUFFIX,wo.cn
+DOMAIN-SUFFIX,17wo.cn
+DOMAIN-SUFFIX,189.cn
+DOMAIN-SUFFIX,10000.com
+DOMAIN-SUFFIX,chinatelecom.com.cn
+DOMAIN-SUFFIX,ctyun.cn
+DOMAIN-SUFFIX,cloud189.com
+DOMAIN-SUFFIX,bestpay.com.cn
+
 # Mainland securities brokers.
 DOMAIN-SUFFIX,gf.com.cn
 DOMAIN-SUFFIX,gfzq.cn
