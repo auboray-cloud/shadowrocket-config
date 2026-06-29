@@ -16,7 +16,7 @@ The same URL is also written into `update-url`, so the profile can update itself
 
 Rules are matched from top to bottom. The current design is intentionally simple:
 
-1. Local network, NAS, `*.auboray.com`, `*.auboray.org`, and Synology QuickConnect direct
+1. Local network, private domains, home NAS domains, and private remote-access domains direct
 2. Mainland daily app allowlist direct
 3. AI services through `AI-SG`
 4. Google/YouTube through the main proxy; developer sites and privacy checks are inline proxy rules
@@ -37,16 +37,12 @@ Always direct:
 - `.home.arpa`
 - `.localdomain`
 - `.localnet`
-- `auboray.com`
-- `*.auboray.com`
-- `auboray.org`
-- `*.auboray.org`
-- `quickconnect.to`
-- `quickconnect.cn`
+- private personal domains
+- home NAS and private remote-access domains
 - Private IPv4 ranges such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`
 - Local IPv6 ranges such as `::1/128`, `fc00::/7`, and `fe80::/10`
 
-Purpose: routers, NAS, printers, Home Assistant, local devices, and local services should never go through proxy.
+Purpose: routers, home NAS, printers, Home Assistant, local devices, private domains, and local services should never go through proxy.
 
 ## Mainland Daily App Allowlist
 
@@ -110,7 +106,7 @@ Current DNS:
 ```conf
 dns-server = system, h3://dns.alidns.com/dns-query, https://doh.pub/dns-query
 fallback-dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query
-always-real-ip = auboray.com, *.auboray.com
+always-real-ip = <private-domains>
 dns-direct-system = true
 ```
 
@@ -119,7 +115,7 @@ Design:
 - System DNS stays available for local and home-network names.
 - Domestic encrypted DNS helps mainland services.
 - Overseas DNS is fallback.
-- `auboray.com` and `*.auboray.com` use real DNS results for IPv6 direct access.
+- Private home domains use real DNS results for IPv6 direct access.
 
 ## IPv6
 
@@ -129,7 +125,7 @@ Current setting:
 ipv6 = true
 ```
 
-Reason: the home NAS domain uses IPv6 direct access. Keep IPv6 leak tests in mind when changing nodes or DNS settings.
+Reason: a private home service may use IPv6 direct access. Keep IPv6 leak tests in mind when changing nodes or DNS settings.
 
 ## MITM
 
@@ -161,8 +157,8 @@ If Futu or Longbridge is slow:
 2. Keep the profile in config mode.
 3. Check that the request falls through to `FINAL,PROXY` instead of direct.
 
-If local NAS or LAN access fails:
+If local NAS, private domains, or LAN access fails:
 
-1. Check whether the hostname is under `*.auboray.com`, `.local`, `.lan`, `.home`, or another local suffix.
+1. Check whether the hostname is a private domain, `.local`, `.lan`, `.home`, or another local suffix.
 2. Make sure Chrome Secure DNS is disabled if Chrome bypasses system DNS.
 3. Verify IPv6 is available on the local network.
