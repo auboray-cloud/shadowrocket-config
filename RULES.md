@@ -19,7 +19,7 @@ Rules are matched from top to bottom. The current design is intentionally simple
 1. Local network, NAS, `*.auboray.com`, `*.auboray.org`, and Synology QuickConnect direct
 2. Mainland daily app allowlist direct
 3. AI services through `AI-SG`
-4. Telegram, Google/YouTube, developer sites, and privacy checks through the main proxy
+4. Google/YouTube, developer sites, and privacy checks through the main proxy
 5. Apple core services direct
 6. Everything else through the main proxy
 

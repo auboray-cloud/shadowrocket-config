@@ -5,8 +5,8 @@ Personal Shadowrocket rule configuration for mainland China networks.
 ## Files
 
 - `Auboray_SmartLink.conf`: main Shadowrocket configuration.
-- `rules/`: mirrored rule-set files used by `Auboray_SmartLink.conf`.
-- `MIRROR.md`: rule mirror source and refresh notes.
+- `rules/`: curated rule-set files used by `Auboray_SmartLink.conf`.
+- `MIRROR.md`: rule-set source and maintenance notes.
 - `RULES.md`: routing rule guide and troubleshooting notes.
 - `规则说明.md`: 中文规则说明和排查指南。
 
@@ -27,7 +27,7 @@ update-url = https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config
 ## Notes
 
 - This config does not include proxy nodes.
-- Rule sets are stored in this repository; only Telegram is refreshed from upstream, and the rest are curated for this profile.
+- Rule sets are stored in this repository and curated for this profile.
 - Only explicit mainland daily-app allowlists are routed direct.
 - There is no broad `.cn`, China IP, or `GEOIP,CN` direct fallback.
 - Unknown traffic falls back to the main proxy.

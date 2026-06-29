@@ -1,20 +1,18 @@
-# Mirrored Rule Sets
+# Rule Sets
 
-Only `Telegram.list` is mirrored from upstream. Other files in `rules/` are curated for `Auboray_SmartLink.conf`.
+The files in `rules/` are curated for `Auboray_SmartLink.conf`.
 
-Original upstream:
+Current files:
 
-```text
-https://github.com/blackmatrix7/ios_rule_script
-```
-
-Mirrored upstream files:
-
-- `Telegram.list`
+- `AI.list`
+- `ChinaDaily.list`
+- `DeveloperPrivacy.list`
+- `GoogleYouTube.list`
 
 Purpose:
 
-- Keep Shadowrocket usable even if the upstream repository is temporarily unavailable.
-- Make the config depend on `auboray-cloud/shadowrocket-config` instead of directly depending on upstream raw URLs.
+- Keep the profile small and readable.
+- Avoid depending on upstream raw rule URLs at runtime.
+- Keep only the rule sets that need explicit routing.
 
-This mirror is refreshed weekly by GitHub Actions. If upstream disappears later, the latest mirrored file remains in this repository.
+There is no automatic upstream mirroring now. Update these files intentionally when logs show a real need.
