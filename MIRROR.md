@@ -6,7 +6,6 @@ Current files:
 
 - `AI.list`
 - `ChinaDaily.list`
-- `DeveloperPrivacy.list`
 - `GoogleYouTube.list`
 
 Purpose:
