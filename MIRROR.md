@@ -13,7 +13,6 @@ Mirrored files:
 - `AdvertisingLite.list`
 - `Telegram.list`
 - `OpenAI.list`
-- `AppleNews.list`
 - `YouTube.list`
 - `Netflix.list`
 - `Disney.list`
