@@ -18,11 +18,10 @@ Rules are matched from top to bottom. The current design is intentionally simple
 
 1. Local network, NAS, `*.auboray.com`, `*.auboray.org`, and Synology QuickConnect direct
 2. Mainland daily app allowlist direct
-3. Lightweight ad blocking
-4. AI services through `AI-SG`
-5. Selected overseas services through the main proxy
-6. Apple core services direct
-7. Everything else through the main proxy
+3. AI services through `AI-SG`
+4. Telegram, Google/YouTube, developer sites, and privacy checks through the main proxy
+5. Apple core services direct
+6. Everything else through the main proxy
 
 There is no broad `.cn`, China IP, or `GEOIP,CN` direct fallback. Unknown traffic should use the main proxy.
 
@@ -87,6 +86,8 @@ Covered examples:
 - GitHub Copilot
 - Mistral, Meta AI, Character.AI, Hugging Face, Groq, OpenRouter, Midjourney
 
+OpenAI supplemental dependencies are merged into `AI.list`, so OpenAI and ChatGPT traffic use `AI-SG` consistently.
+
 Domestic AI services are not added to `AI.list`; they should use the normal mainland daily/direct path only when explicitly allowlisted.
 
 ## Main Proxy Fallback
@@ -143,7 +144,7 @@ If a mainland daily app is slow or cannot log in:
 
 1. Check Shadowrocket recent requests.
 2. If the app is going through `PROXY`, add its domain to `ChinaDaily.list`.
-3. If it is blocked by `REJECT`, check `AdvertisingLite.list`.
+3. If a domain is missing, add it to `ChinaDaily.list` only when it should clearly stay direct.
 
 If an overseas service does not work:
 

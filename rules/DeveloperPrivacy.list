@@ -1,0 +1,12 @@
+# Developer platforms and privacy leak test sites.
+DOMAIN-SUFFIX,github.com
+DOMAIN-SUFFIX,githubusercontent.com
+DOMAIN-SUFFIX,githubassets.com
+DOMAIN-SUFFIX,github.dev
+DOMAIN-SUFFIX,github.io
+DOMAIN-SUFFIX,ghcr.io
+DOMAIN-SUFFIX,gitlab.com
+DOMAIN-SUFFIX,dnsleaktest.com
+DOMAIN-SUFFIX,ipleak.net
+DOMAIN-SUFFIX,browserleaks.com
+DOMAIN-SUFFIX,browserleaks.org

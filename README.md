@@ -27,7 +27,7 @@ update-url = https://raw.githubusercontent.com/auboray-cloud/shadowrocket-config
 ## Notes
 
 - This config does not include proxy nodes.
-- Rule sets are mirrored into this repository, so the config no longer directly depends on upstream raw rule URLs.
+- Rule sets are stored in this repository; only Telegram is refreshed from upstream, and the rest are curated for this profile.
 - Only explicit mainland daily-app allowlists are routed direct.
 - There is no broad `.cn`, China IP, or `GEOIP,CN` direct fallback.
 - Unknown traffic falls back to the main proxy.
