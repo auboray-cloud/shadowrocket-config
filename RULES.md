@@ -60,9 +60,12 @@ Covered categories:
 
 - Payments and messaging: Alipay, WeChat Pay, QQ, UnionPay
 - Banks: ICBC, CCB, ABC, BOC, CMB, PSBC, CIB, CEB, CITIC, SPDB, Ping An, WeBank, MYbank
+- China carriers: China Mobile, China Unicom, China Telecom, Migu, 139, Cloud 189, carrier smart-home services
+- Mainland brokers: GF Securities and SDIC Securities related domains
 - Government and public services: `gov.cn`, `12306.cn`, tax, healthcare, MIIT, public security, social security
 - Video and social apps: Douyin, Kuaishou, Bilibili, Xiaohongshu, Xigua
 - Shopping and local life: Taobao, Tmall, 1688, JD, Pinduoduo, Suning, Vipshop, Meituan, Dianping, Ele.me
+- Maps, SDKs, and device ecosystems: Amap, Baidu, NetEase, Xiaomi/Mi Home, EZVIZ/Ys7
 
 Purpose: only trusted daily mainland services are direct. This keeps payment, banking, government, shopping, and short-video apps fast and less likely to trigger risk checks.
 

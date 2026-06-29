@@ -144,6 +144,18 @@ DOMAIN-SUFFIX,meituan.com
 DOMAIN-SUFFIX,dianping.com
 DOMAIN-SUFFIX,ele.me
 
+# NetEase services.
+DOMAIN-SUFFIX,163.com
+DOMAIN-SUFFIX,126.com
+DOMAIN-SUFFIX,126.net
+DOMAIN-SUFFIX,127.net
+DOMAIN-SUFFIX,yeah.net
+DOMAIN-SUFFIX,netease.com
+DOMAIN-SUFFIX,netease.im
+DOMAIN-SUFFIX,music.163.com
+DOMAIN-SUFFIX,youdao.com
+DOMAIN-SUFFIX,ydstatic.com
+
 # Maps and location services.
 DOMAIN-SUFFIX,amap.com
 DOMAIN-SUFFIX,autonavi.com
