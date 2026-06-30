@@ -144,6 +144,10 @@ DOMAIN-SUFFIX,meituan.com
 DOMAIN-SUFFIX,dianping.com
 DOMAIN-SUFFIX,ele.me
 
+# Cloud storage services.
+DOMAIN-SUFFIX,aliyundrive.com
+DOMAIN-SUFFIX,aliyundrive.net
+
 # NetEase services.
 DOMAIN-SUFFIX,163.com
 DOMAIN-SUFFIX,126.com
