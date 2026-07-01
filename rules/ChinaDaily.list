@@ -148,9 +148,6 @@ DOMAIN-SUFFIX,ele.me
 DOMAIN-SUFFIX,aliyundrive.com
 DOMAIN-SUFFIX,aliyundrive.net
 
-# Alibaba Cloud logging.
-DOMAIN-SUFFIX,log.aliyuncs.com
-
 # NetEase services.
 DOMAIN-SUFFIX,163.com
 DOMAIN-SUFFIX,126.com
