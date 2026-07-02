@@ -183,3 +183,6 @@ DOMAIN-SUFFIX,mijia.tech
 DOMAIN-SUFFIX,ys7.com
 DOMAIN-SUFFIX,ezviz.com
 DOMAIN-SUFFIX,ezvizlife.com
+
+# Manual single-IP direct rules.
+IP-CIDR,47.236.180.26/32,no-resolve
